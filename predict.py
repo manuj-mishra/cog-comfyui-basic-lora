@@ -66,17 +66,6 @@ class Predictor(BasePredictor):
 
     def predict(
         self,
-        prompt: str = Input(
-            default="",
-        ),
-        negative_prompt: str = Input(
-            description="Things you do not want to see in your image",
-            default="",
-        ),
-        image: Path = Input(
-            description="An input image",
-            default=None,
-        ),
         output_format: str = optimise_images.predict_output_format(),
         output_quality: int = optimise_images.predict_output_quality(),
         seed: int = seed_helper.predict_seed(),
@@ -87,19 +76,11 @@ class Predictor(BasePredictor):
         # Make sure to set the seeds in your workflow
         seed = seed_helper.generate(seed)
 
-        image_filename = None
-        if image:
-            image_filename = self.filename_with_extension(image, "image")
-            self.handle_input_file(image, image_filename)
-
         with open(api_json_file, "r") as file:
             workflow = json.loads(file.read())
 
         self.update_workflow(
             workflow,
-            prompt=prompt,
-            negative_prompt=negative_prompt,
-            image_filename=image_filename,
             seed=seed,
         )
 
