@@ -1,0 +1,8 @@
+{
+  "checkpoints": [
+    "SDXL-TURBO/sd_xl_turbo_1.0_fp16.safetensors"
+  ],
+  "loras": [
+    "princess_xl_v2.safetensors"
+  ]
+}
