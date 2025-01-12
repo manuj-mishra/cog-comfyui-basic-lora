@@ -33,6 +33,7 @@ class Predictor(BasePredictor):
 
         # Hardcoded downloads
         os.system("wget -O ComfyUI/models/loras/princess_xl_v2.safetensors https://civitai.com/api/download/models/244808?type=Model&format=SafeTensor")
+        os.system("wget -O ComfyUI/models/checkpoints/SDXL-TURBO/sd_xl_turbo_1.0_fp16.safetensors https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors?download=true")
 
         # Give a list of weights filenames to download during setup
         with open(api_json_file, "r") as file:
