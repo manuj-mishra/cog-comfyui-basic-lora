@@ -31,6 +31,9 @@ class Predictor(BasePredictor):
         self.comfyUI = ComfyUI("127.0.0.1:8188")
         self.comfyUI.start_server(OUTPUT_DIR, INPUT_DIR)
 
+        # Hardcoded downloads
+        os.system("wget -O ComfyUI/models/loras/princess_xl_v2.safetensors https://civitai.com/api/download/models/244808?type=Model&format=SafeTensor")
+
         # Give a list of weights filenames to download during setup
         with open(api_json_file, "r") as file:
             workflow = json.loads(file.read())
