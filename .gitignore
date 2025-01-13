@@ -15,5 +15,4 @@ weights.txt
 manifest.txt
 updated_weights.json
 downloaded_user_models/*
-!downloaded_user_models/weights.json
 .cog
